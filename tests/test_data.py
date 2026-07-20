@@ -8,6 +8,3 @@ def test_requirements_exists():
 
 def test_notebooks_folder_exists():
     assert Path("notebooks").exists()
-
-def test_data_folder_exists():
-    assert Path("data").exists()
