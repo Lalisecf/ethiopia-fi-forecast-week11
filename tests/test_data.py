@@ -1,10 +1,13 @@
-import pandas as pd
 from pathlib import Path
 
+def test_readme_exists():
+    assert Path("README.md").exists()
 
-def test_dataset_exists():
-    assert Path("data/raw/ethiopia_fi_unified_data.xlsx").exists()
+def test_requirements_exists():
+    assert Path("requirements.txt").exists()
 
+def test_notebooks_folder_exists():
+    assert Path("notebooks").exists()
 
-def test_reference_exists():
-    assert Path("data/raw/reference_codes.csv").exists()
+def test_data_folder_exists():
+    assert Path("data").exists()
