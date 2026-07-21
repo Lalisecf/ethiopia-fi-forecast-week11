@@ -4,7 +4,7 @@
 >
 > **Week 11 Challenge**
 >
-> **Task 1: Data Exploration and Enrichment**
+> **Tasks 1 & 2: Data Exploration, Enrichment, and Exploratory Data Analysis**
 >
 > **Student:** Lalise Fufi
 
@@ -45,6 +45,10 @@ The objectives of Task 1 are to:
 - Analyze observations, events, and impact relationships.
 - Enrich the dataset with additional records useful for forecasting.
 - Save analysis-ready datasets for subsequent modeling tasks.
+- Perform comprehensive exploratory data analysis.
+- Identify drivers of financial inclusion.
+- Analyze infrastructure, events, and usage patterns.
+- Generate insights to support forecasting.
 
 ---
 
@@ -67,6 +71,8 @@ ethiopia-fi-forecast-week11/
 │
 ├── notebooks/
 │   └── Task_1_Data_Exploration.ipynb
+│   └── Task_2_Exploratory_Data_Analysis.ipynb
+│     
 │
 ├── reports/
 │   └── figures/
@@ -499,12 +505,372 @@ Document data enrichment process
 ```
 
 ---
+---
+
+# Task 2: Exploratory Data Analysis (EDA)
+
+## Objective
+
+Task 2 focuses on understanding the characteristics of Ethiopia's financial inclusion data through exploratory analysis. The goal is to identify trends, relationships, data quality issues, infrastructure drivers, and event impacts that influence financial inclusion outcomes and provide a strong foundation for forecasting.
+
+---
+
+# Task 2 Workflow
+
+```text
+Load Enriched Dataset
+        │
+        ▼
+Dataset Overview
+        │
+        ▼
+Data Quality Assessment
+        │
+        ▼
+Access Analysis
+        │
+        ▼
+Usage Analysis
+        │
+        ▼
+Infrastructure & Enablers Analysis
+        │
+        ▼
+Event Timeline Analysis
+        │
+        ▼
+Correlation Analysis
+        │
+        ▼
+Key Insights & Conclusions
+```
+
+---
+
+# Dataset Overview
+
+The exploratory analysis begins by summarizing the enriched dataset.
+
+The analysis includes:
+
+- Distribution of record types
+- Financial inclusion pillars
+- Source types
+- Confidence levels
+- Indicator coverage
+- Temporal coverage
+- Missing values assessment
+
+Key findings:
+
+- Observation records form the majority of analytical data.
+- Access and Usage indicators dominate the dataset.
+- Most records originate from official operator reports and surveys.
+- Over 90% of records are classified as High confidence.
+- Coverage spans from **2011–2025**, although many indicators contain only a few observations.
+
+---
+
+# Data Quality Assessment
+
+Several quality checks were performed before analysis.
+
+The assessment included:
+
+- Missing value analysis
+- Duplicate record detection
+- Confidence distribution
+- Indicator coverage
+- Temporal completeness
+
+### Findings
+
+- No duplicate records were identified.
+- Most missing values occur because the unified schema stores different record types within the same table.
+- Event records naturally omit numerical observation fields.
+- Impact link records omit several observation-specific attributes.
+- Overall data quality is suitable for exploratory analysis and forecasting.
+
+---
+
+# Access (Account Ownership) Analysis
+
+The Access pillar represents the percentage of Ethiopian adults who own a financial account.
+
+Analysis performed:
+
+- Historical trend visualization
+- Growth rate calculation
+- Year-over-year comparison
+- Investigation of the 2021–2024 slowdown
+
+### Key Findings
+
+- Account ownership increased steadily between 2011 and 2021.
+- Growth slowed considerably between 2021 and 2024, increasing by only three percentage points.
+- Despite rapid expansion of mobile money services, overall financial account ownership did not accelerate proportionally.
+- This suggests structural barriers beyond infrastructure expansion, including financial literacy, rural access, regulatory adoption, and user behavior.
+
+---
+
+# Usage (Digital Payments) Analysis
+
+Digital payment adoption was analyzed using mobile money and payment-related indicators.
+
+The analysis includes:
+
+- Mobile money account ownership
+- Telebirr growth
+- M-Pesa adoption
+- Digital payment indicators
+- Registered versus active users
+
+### Key Findings
+
+- Mobile money adoption increased significantly after Telebirr's launch.
+- Digital payment usage continues to expand through peer-to-peer transactions.
+- Registered accounts substantially exceed active users, indicating a usage gap.
+- Peer-to-peer transfers remain the dominant digital payment use case.
+
+---
+
+# Infrastructure and Enablers Analysis
+
+Infrastructure indicators were evaluated to understand their contribution to financial inclusion.
+
+Indicators analyzed include:
+
+- Mobile penetration
+- 4G network coverage
+- Fayda Digital ID
+- ATM infrastructure
+- Data affordability
+
+### Findings
+
+- Mobile penetration continues to improve across Ethiopia.
+- Expansion of 4G coverage creates favorable conditions for digital finance.
+- Fayda Digital ID strengthens customer onboarding and electronic Know Your Customer (eKYC) processes.
+- Data affordability remains an important determinant of digital payment adoption.
+- Infrastructure variables appear to function as leading indicators for financial inclusion growth.
+
+---
+
+# Event Timeline Analysis
+
+The dataset contains important policy and market events affecting financial inclusion.
+
+Major events include:
+
+- Telebirr Launch
+- Safaricom Market Entry
+- M-Pesa Launch
+- National Financial Inclusion Strategy
+- Infrastructure Expansion
+- Pricing Reforms
+- Strategic Partnerships
+
+The event timeline was compared with major financial inclusion indicators.
+
+### Findings
+
+- Telebirr corresponds with substantial growth in digital payment indicators.
+- Safaricom's market entry aligns with infrastructure investment.
+- Policy interventions generally precede improvements in Access and Usage indicators.
+- Multiple events influence the same indicator simultaneously, highlighting the importance of impact modeling.
+
+---
+
+# Correlation Analysis
+
+Correlation analysis was performed using numerical indicators.
+
+The analysis investigated relationships between:
+
+- Access indicators
+- Usage indicators
+- Infrastructure metrics
+- Gender indicators
+- Affordability measures
+
+### Findings
+
+- Infrastructure variables demonstrate positive relationships with Access and Usage.
+- Mobile money indicators are closely associated with digital payment adoption.
+- Gender gap indicators remain negatively associated with overall inclusion.
+- Affordability variables influence long-term adoption.
+
+The analysis supports selecting infrastructure and digital payment metrics as important forecasting features.
+
+---
+
+# Event–Indicator Relationship Analysis
+
+Existing impact links were analyzed to understand causal assumptions within the dataset.
+
+The analysis examined:
+
+- Direct versus indirect impacts
+- Impact magnitude
+- Expected lag
+- Evidence basis
+- Comparable country references
+
+### Findings
+
+- Direct relationships account for the majority of modeled impacts.
+- Most modeled effects increase financial inclusion.
+- Average implementation lag is approximately eight months.
+- Literature and empirical evidence are the primary sources supporting impact estimates.
+
+These relationships will be incorporated into the forecasting model during subsequent tasks.
+
+---
+
+# Visualizations Produced
+
+Task 2 generated the following figures:
+
+- Record Type Distribution
+- Pillar Distribution
+- Source Type Distribution
+- Confidence Distribution
+- Indicator Coverage
+- Temporal Coverage Heatmap
+- Missing Values Visualization
+- Account Ownership Trend
+- Account Ownership Growth Rate
+- Mobile Money Trend
+- Telebirr and M-Pesa Growth
+- Infrastructure Indicators
+- Event Timeline
+- Event Category Distribution
+- Correlation Heatmap
+- Impact Relationship Distribution
+- Leading Indicator Analysis
+
+All visualizations are stored under:
+
+```
+
+reports/figures/
+
+```
+
+---
+
+# Key Insights
+
+The exploratory analysis produced several important findings.
+
+## 1. Financial inclusion continues to improve but growth has slowed.
+
+Account ownership increased significantly between 2011 and 2021 but experienced only modest growth between 2021 and 2024.
+
+---
+
+## 2. Mobile money expansion alone is insufficient.
+
+Although Telebirr and M-Pesa rapidly increased registered users, this growth has not translated proportionally into financial account ownership.
+
+---
+
+## 3. Infrastructure is a major enabling factor.
+
+Expansion of mobile penetration, 4G coverage, and digital identity services creates favorable conditions for increased financial inclusion.
+
+---
+
+## 4. Policy interventions have measurable impacts.
+
+Product launches, regulatory reforms, infrastructure projects, and partnerships influence multiple financial inclusion indicators through direct and indirect relationships.
+
+---
+
+## 5. Data limitations remain.
+
+Several indicators contain only one or two observations, limiting statistical forecasting approaches.
+
+These limitations motivate combining trend forecasting with event-based intervention modeling.
+
+---
+
+# Output Files
+
+Task 2 produced:
+
+```
+
+reports/
+│
+├── figures/
+│   ├── account_ownership_trend.png
+│   ├── growth_rate.png
+│   ├── mobile_money_trend.png
+│   ├── infrastructure_analysis.png
+│   ├── event_timeline.png
+│   ├── correlation_heatmap.png
+│   └── ...
+
+```
+
+Notebook:
+
+```
+
+notebooks/
+Task_2_Exploratory_Data_Analysis.ipynb
+
+```
+
+---
+
+# Git Workflow
+
+Task 2 development followed Git best practices.
+
+Major commits include:
+
+```text
+Create Task 2 exploratory data analysis notebook
+
+Analyze dataset overview and quality
+
+Perform access analysis
+
+Analyze digital payment usage
+
+Analyze infrastructure indicators
+
+Create event timeline visualization
+
+Perform correlation analysis
+
+Summarize EDA insights
+
+Complete Task 2 exploratory analysis
+```
+
+---
+
+# Next Steps
+
+Task 3 will focus on:
+
+- Building the Event–Indicator Association Matrix
+- Event Impact Modeling
+- Comparable Country Analysis
+- Impact Validation
+- Methodology Documentation
+
+These outputs will support forecasting Ethiopia's financial inclusion indicators for 2025–2027.
+
+---
 
 # Future Work
 
 Subsequent tasks will include:
 
-- Exploratory Data Analysis
 - Event Impact Modeling
 - Association Matrix Construction
 - Forecasting Access and Usage
