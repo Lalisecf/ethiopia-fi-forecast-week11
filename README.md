@@ -853,17 +853,312 @@ Complete Task 2 exploratory analysis
 
 ---
 
+# Task 3: Event Impact Modeling and Validation
+
+## Objective
+
+Task 3 extends the exploratory analysis by modeling how major policies, product launches, infrastructure investments, and market events influence Ethiopia's financial inclusion indicators.
+
+Rather than relying solely on historical trends, this task incorporates expert-defined event impacts to support future forecasting. The analysis establishes relationships between events and financial inclusion indicators, quantifies expected effects, validates selected interventions against historical observations, and documents the assumptions and limitations of the modeling approach.
+
+---
+
+# Task 3 Workflow
+
+```text
+Load Enriched Dataset
+        │
+        ▼
+Extract Events & Impact Links
+        │
+        ▼
+Merge Event–Impact Relationships
+        │
+        ▼
+Create Event Summary
+        │
+        ▼
+Build Association Matrix
+        │
+        ▼
+Visualize Event–Indicator Heatmap
+        │
+        ▼
+Historical Validation
+        │
+        ▼
+Methodology Documentation
+        │
+        ▼
+Assumptions & Limitations
+        │
+        ▼
+Export Outputs
+```
+
+---
+
+# Event Analysis
+
+The enriched dataset contains important events representing policy interventions, infrastructure developments, partnerships, pricing changes, and product launches.
+
+### Event Categories
+
+- Policy
+- Product Launch
+- Infrastructure
+- Market Entry
+- Milestone
+- Partnership
+- Pricing
+
+### Timeline
+
+The recorded events span **2021–2026**, covering major developments in Ethiopia's digital financial ecosystem.
+
+### Key Findings
+
+- Policy interventions are the most frequent event type.
+- Product launches and infrastructure developments are the next most common categories.
+- Partnerships, milestones, market entry, and pricing reforms occur less frequently but provide important context for financial inclusion.
+
+---
+
+# Impact Link Analysis
+
+Impact links connect each event to one or more financial inclusion indicators.
+
+The analysis includes:
+
+- Impact direction
+- Impact magnitude
+- Expected implementation lag
+- Evidence basis
+- Comparable country references
+
+### Findings
+
+- Most modeled impacts are expected to increase financial inclusion.
+- A smaller number of impacts reduce affordability or narrow gender disparities.
+- The average expected implementation lag is approximately **9 months**.
+- Lag periods range from **1 month to 24 months**, depending on the intervention.
+
+---
+
+# Event Summary
+
+A consolidated event summary was created by merging event records with impact links.
+
+The summary contains:
+
+- Event name
+- Event category
+- Related indicator
+- Impact direction
+- Impact magnitude
+- Expected lag
+
+This dataset provides a structured mapping between major events and the financial inclusion indicators they influence, serving as the foundation for event-based forecasting.
+
+---
+
+# Event–Indicator Association Matrix
+
+An Event–Indicator Association Matrix was created by converting qualitative impact descriptions into numerical impact scores.
+
+### Impact Scoring Scheme
+
+| Impact | Score |
+|---------|------:|
+| High Increase | +3 |
+| Medium Increase | +2 |
+| Low Increase | +1 |
+| Low Decrease | -1 |
+| Medium Decrease | -2 |
+| High Decrease | -3 |
+
+The matrix summarizes the expected influence of each event on every related financial inclusion indicator.
+
+---
+
+# Heatmap Visualization
+
+A heatmap was generated to visualize the strength and direction of event impacts.
+
+### Key Insights
+
+- **Telebirr Launch** has a strong positive impact on Account Ownership, Telebirr Users, and P2P Transactions.
+- **M-Pesa Launch** strongly increases M-Pesa Users and moderately improves Mobile Money Account Ownership.
+- **Fayda Digital ID** positively affects Account Ownership while reducing the Gender Gap.
+- **Safaricom Market Entry** improves 4G Coverage but negatively affects Data Affordability.
+- **FX Reform** has the strongest positive influence on Data Affordability.
+- Overall, most modeled interventions contribute positively to financial inclusion.
+
+---
+
+# Historical Validation
+
+Historical validation compares modeled event impacts with observed financial inclusion data.
+
+## Telebirr Validation
+
+The Mobile Money Account Ownership indicator was analyzed before and after the launch of Telebirr in May 2021.
+
+### Observations
+
+- Mobile money account ownership increased after the Telebirr launch.
+- The observed trend aligns with the expected positive intervention effect.
+- Although only a limited number of observations are available, the validation provides reasonable support for the event-based intervention model.
+
+## M-Pesa Validation
+
+M-Pesa entered the Ethiopian market more recently.
+
+### Observations
+
+- Historical observations remain limited.
+- Validation is therefore less conclusive.
+- Forecast uncertainty is higher and is expected to decrease as additional data become available.
+
+---
+
+# Modeling Methodology
+
+Task 3 adopts an **Event-Based Additive Intervention Model** to combine historical trends with the estimated effects of major events.
+
+The intervention model is expressed as:
+
+\[
+Y_t = Trend_t + \sum_{i=1}^{n} Event_i
+\]
+
+Where:
+
+- **Trendₜ** represents the underlying trend of a financial inclusion indicator.
+- **Eventᵢ** represents the estimated contribution of each intervention.
+- The expected indicator value is calculated by combining the baseline trend with all relevant event effects.
+
+Each event is characterized by:
+
+- Positive or negative impact direction
+- Low, medium, or high impact magnitude
+- Expected implementation lag
+
+---
+
+# Modeling Assumptions
+
+The intervention model is based on the following assumptions:
+
+- Historical observations are limited.
+- Event impacts are estimated using literature, reports, and expert judgment.
+- Event effects are additive.
+- Impact magnitudes remain constant throughout the forecast horizon.
+- Implementation lags are fixed.
+- Interaction effects between simultaneous events are not explicitly modeled.
+
+---
+
+# Limitations
+
+Several limitations should be considered when interpreting the results.
+
+- Sparse Global Findex observations.
+- Limited annual measurements for several indicators.
+- Potential omission of important explanatory variables.
+- Correlation does not necessarily imply causation.
+- Impact magnitudes rely partly on expert judgment.
+- Confidence levels vary across indicators and data sources.
+
+---
+
+# Validation Discussion
+
+Historical validation indicates that the event-based intervention model captures the general direction of major financial inclusion changes.
+
+### Telebirr
+
+- The model predicts an increase in Mobile Money Account Ownership.
+- Historical observations show an increase after the Telebirr launch.
+- The observed trend and modeled effect are reasonably consistent.
+
+### M-Pesa
+
+- The model predicts positive impacts on financial inclusion.
+- Limited post-launch observations make comprehensive validation difficult.
+- Forecast uncertainty remains relatively high until more historical data become available.
+
+Overall, the intervention framework provides a practical approach for incorporating major policies, infrastructure projects, and product launches into financial inclusion forecasting while acknowledging current data limitations.
+
+---
+
+# Output Files
+
+Task 3 generated the following outputs.
+
+```text
+reports/
+│
+├── event_summary.csv
+├── event_indicator_matrix.csv
+│
+└── figures/
+    ├── association_heatmap.png
+    └── telebirr_validation.png
+```
+
+Notebook:
+
+```text
+notebooks/
+Task_3_Event_Impact_Modeling.ipynb
+```
+
+---
+
+# Git Workflow
+
+Task 3 development followed Git best practices.
+
+Major commits include:
+
+```text
+Create Task 3 event impact modeling notebook
+
+Merge events with impact links
+
+Generate event summary dataset
+
+Build event–indicator association matrix
+
+Visualize association heatmap
+
+Validate Telebirr intervention using historical observations
+
+Document event-based modeling methodology
+
+Document modeling assumptions
+
+Document limitations and uncertainty
+
+Summarize validation findings
+
+Export Task 3 outputs
+```
+
+---
+
 # Next Steps
 
-Task 3 will focus on:
+he next phase of the project focuses on forecasting Ethiopia's financial inclusion indicators for **2025–2027** using the enriched dataset and the event-based intervention framework developed in Tasks 1–3.
 
-- Building the Event–Indicator Association Matrix
-- Event Impact Modeling
-- Comparable Country Analysis
-- Impact Validation
-- Methodology Documentation
+Planned activities include:
 
-These outputs will support forecasting Ethiopia's financial inclusion indicators for 2025–2027.
+- Develop time series forecasting models for Access and Usage indicators.
+- Integrate event effects into forecasting models.
+- Compare forecasting model performance using appropriate evaluation metrics.
+- Generate forecasts for 2025–2027.
+- Build an interactive Streamlit dashboard for visualization and decision support.
 
 ---
 
