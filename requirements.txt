@@ -5,3 +5,6 @@ seaborn
 openpyxl
 scikit-learn
 statsmodels
+streamlit
+plotly
+plotly-express
