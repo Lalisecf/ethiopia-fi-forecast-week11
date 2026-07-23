@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+from sidebar import render_sidebar
+
+render_sidebar()
 
 # --------------------------------------------------
 # Page Configuration
