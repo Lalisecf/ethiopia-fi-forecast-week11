@@ -68,6 +68,32 @@ col4.metric(
 st.divider()
 
 # --------------------------------------------------
+# P2P / ATM Crossover Indicator
+# --------------------------------------------------
+st.subheader("P2P / ATM Crossover Indicator")
+
+col1, col2 = st.columns([1, 3])
+
+with col1:
+    st.metric(
+        "P2P / ATM Ratio",
+        "1.18",
+        "+12%"
+    )
+
+with col2:
+    st.info(
+        """
+        **Interpretation**
+
+        A **P2P/ATM ratio above 1** means digital peer-to-peer transactions
+        now exceed ATM withdrawals. This milestone highlights Ethiopia's
+        transition toward digital financial services and supports continued
+        financial inclusion through mobile money and digital payment platforms.
+        """
+)
+
+# --------------------------------------------------
 # Growth Summary
 # --------------------------------------------------
 st.subheader("Growth Summary")
