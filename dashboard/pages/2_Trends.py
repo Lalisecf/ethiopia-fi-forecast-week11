@@ -25,9 +25,9 @@ across Ethiopia's financial ecosystem.
 # -----------------------------------------------------
 # Load Dataset
 # -----------------------------------------------------
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
-DATA_PATH = ROOT_DIR / "data" / "processed" / "ethiopia_fi_unified_data.csv"
+DATA_PATH = ROOT_DIR / "data" / "processed" / "ethiopia_fi_enriched.csv"
 
 df = pd.read_csv(DATA_PATH)
 
@@ -36,7 +36,11 @@ df = pd.read_csv(DATA_PATH)
 # -----------------------------------------------------
 obs = df[df["record_type"] == "observation"].copy()
 
-obs["observation_date"] = pd.to_datetime(obs["observation_date"])
+obs["observation_date"] = pd.to_datetime(
+    obs["observation_date"],
+    format="mixed",
+    errors="coerce"
+)
 
 obs["year"] = obs["observation_date"].dt.year
 

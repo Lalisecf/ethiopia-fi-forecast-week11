@@ -25,14 +25,14 @@ and projected financial inclusion milestones.
 # -----------------------------------------------------
 # Load Data
 # -----------------------------------------------------
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 REPORTS_DIR = ROOT_DIR / "reports"
 DATA_DIR = ROOT_DIR / "data" / "processed"
 
 forecast = pd.read_csv(REPORTS_DIR / "access_forecast.csv")
 
-df = pd.read_csv(DATA_DIR / "ethiopia_fi_unified_data.csv")
+df = pd.read_csv(DATA_DIR / "ethiopia_fi_enriched.csv")
 
 # Historical observations
 access = df[
@@ -41,7 +41,7 @@ access = df[
 ].copy()
 
 access["observation_date"] = pd.to_datetime(access["observation_date"])
-access["year"] = access["observation_date"].dt.year
+access["Year"] = access["observation_date"].dt.year
 
 # -----------------------------------------------------
 # Step 11 - Model Selector
@@ -69,7 +69,7 @@ fig = go.Figure()
 # Historical
 fig.add_trace(
     go.Scatter(
-        x=access["year"],
+        x=access["Year"],
         y=access["value_numeric"],
         mode="lines+markers",
         name="Historical"
@@ -79,7 +79,7 @@ fig.add_trace(
 # Forecast
 fig.add_trace(
     go.Scatter(
-        x=forecast["year"],
+        x=forecast["Year"],
         y=forecast[forecast_column],
         mode="lines+markers",
         name=model
@@ -89,8 +89,8 @@ fig.add_trace(
 # Confidence Interval
 fig.add_trace(
     go.Scatter(
-        x=list(forecast["year"]) + list(forecast["year"][::-1]),
-        y=list(forecast["upper"]) + list(forecast["lower"][::-1]),
+        x=list(forecast["Year"]) + list(forecast["Year"][::-1]),
+        y=list(forecast["Upper"]) + list(forecast["Lower"][::-1]),
         fill="toself",
         fillcolor="rgba(0,100,255,0.20)",
         line=dict(color="rgba(255,255,255,0)"),

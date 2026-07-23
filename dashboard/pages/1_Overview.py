@@ -26,20 +26,21 @@ st.markdown(
 # --------------------------------------------------
 # Load Forecast Data
 # --------------------------------------------------
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 REPORTS_DIR = ROOT_DIR / "reports"
 
 access_forecast = pd.read_csv(REPORTS_DIR / "access_forecast.csv")
 usage_forecast = pd.read_csv(REPORTS_DIR / "usage_forecast.csv")
 
+
 # --------------------------------------------------
 # Latest Forecast
 # --------------------------------------------------
 forecast_2027 = access_forecast.loc[
-    access_forecast["year"] == 2027,
+    access_forecast["Year"] == 2027,
     "Base"
-].values[0]
+].iloc[0]
 
 # --------------------------------------------------
 # Key Metrics
@@ -137,7 +138,7 @@ st.subheader("Forecast Preview")
 
 st.dataframe(
     access_forecast[
-        ["year", "Base", "Optimistic", "Pessimistic"]
+        ["Year", "Base", "Optimistic", "Pessimistic"]
     ],
     use_container_width=True
 )

@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
+from sidebar import render_sidebar
+
+render_sidebar()
 
 # -----------------------------------------------------
 # Page Configuration
@@ -22,7 +25,7 @@ targets under different forecasting scenarios.
 # -----------------------------------------------------
 # Load Forecast Data
 # -----------------------------------------------------
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 REPORTS_DIR = ROOT_DIR / "reports"
 
@@ -92,7 +95,7 @@ column = scenario
 # =====================================================
 
 forecast_2027 = forecast.loc[
-    forecast["year"] == 2027,
+    forecast["Year"] == 2027,
     column
 ].values[0]
 
@@ -152,7 +155,7 @@ fig = go.Figure()
 
 fig.add_trace(
     go.Scatter(
-        x=forecast["year"],
+        x=forecast["Year"],
         y=forecast[column],
         mode="lines+markers",
         name=scenario
