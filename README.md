@@ -1148,6 +1148,357 @@ Export Task 3 outputs
 
 ---
 
+---
+
+# Task 4: Financial Inclusion Forecasting (2025–2027)
+
+## Objective
+
+Task 4 forecasts Ethiopia's financial inclusion indicators for **2025–2027** by combining historical trends with the event-based intervention framework developed in Task 3.
+
+The forecasting focuses on two key indicators:
+
+- **Access:** Account Ownership Rate
+- **Usage:** Mobile Money Activity Rate (used as the available usage indicator)
+
+The objective is to provide evidence-based forecasts that support policy makers, regulators, and financial institutions in planning future financial inclusion initiatives.
+
+---
+
+# Task 4 Workflow
+
+```text
+Load Enriched Dataset
+        │
+        ▼
+Select Forecast Indicators
+        │
+        ▼
+Prepare Time Series
+        │
+        ▼
+Train Linear Regression Models
+        │
+        ▼
+Evaluate Model Performance
+        │
+        ▼
+Generate Baseline Forecasts
+        │
+        ▼
+Incorporate Event Impacts
+        │
+        ▼
+Create Scenario Forecasts
+        │
+        ▼
+Compute Confidence Intervals
+        │
+        ▼
+Visualize Forecasts
+        │
+        ▼
+Export Forecast Tables
+```
+
+---
+
+# Forecasting Methodology
+
+The forecasting approach combines statistical trend estimation with the intervention framework developed in Task 3.
+
+The methodology consists of:
+
+- Historical trend estimation using **Linear Regression**
+- Event-adjusted forecasting using cumulative normalized impact scores
+- Scenario analysis
+- Confidence interval estimation
+- Forecast visualization
+
+The event-augmented forecasting model is expressed as:
+
+\[
+Forecast = Trend + Event\ Impact
+\]
+
+where:
+
+- **Trend** represents the projected historical trajectory.
+- **Event Impact** is derived from the cumulative normalized impact scores produced by the Task 3 association matrix.
+
+---
+
+# Forecast Targets
+
+Two financial inclusion indicators were forecast.
+
+## Access
+
+- Account Ownership Rate
+
+Historical observations from Global Findex were used to estimate the underlying trend before incorporating event effects.
+
+## Usage
+
+- Mobile Money Activity Rate
+
+Because only one direct Digital Payment Adoption observation was available, the Mobile Money Activity Rate was used as the primary usage indicator for forecasting.
+
+---
+
+# Model Training
+
+Separate Linear Regression models were trained for both indicators.
+
+The independent variable:
+
+- Year
+
+Target variables:
+
+- Account Ownership Rate
+- Mobile Money Activity Rate
+
+The models estimate the long-term trend before incorporating policy and infrastructure interventions.
+
+---
+
+# Model Evaluation
+
+Forecast accuracy was evaluated using:
+
+- R² Score
+- Root Mean Squared Error (RMSE)
+
+These metrics provide an indication of how well the historical trend explains the observed data.
+
+Because several indicators contain only a limited number of observations, evaluation metrics should be interpreted cautiously.
+
+---
+
+# Event-Augmented Forecasting
+
+Baseline forecasts were adjusted using cumulative normalized impact scores generated during Task 3.
+
+Major interventions influencing the forecasts include:
+
+- Telebirr Launch
+- M-Pesa Launch
+- Fayda Digital ID
+- National Financial Inclusion Strategy II (NFIS-II)
+- Telecommunications Infrastructure Expansion
+- Strategic Partnerships
+
+Rather than assigning fixed bonuses, the implementation derives adjustment values directly from the normalized event-impact matrix.
+
+---
+
+# Scenario Analysis
+
+Three alternative scenarios were generated.
+
+## Optimistic Scenario
+
+Assumes stronger-than-expected implementation of policies, infrastructure investments, and digital financial services.
+
+## Base Scenario
+
+Represents the most likely outcome using observed historical trends and estimated event impacts.
+
+## Pessimistic Scenario
+
+Assumes slower adoption, delayed implementation, and weaker intervention effects.
+
+These scenarios provide a range of plausible financial inclusion outcomes for 2025–2027.
+
+---
+
+# Confidence Intervals
+
+Forecast uncertainty was estimated using the residual standard deviation of the regression model.
+
+A 95% confidence interval was calculated as:
+
+\[
+Forecast \pm 1.96 \times \sigma
+\]
+
+where:
+
+- σ represents the standard deviation of model residuals.
+
+The confidence intervals illustrate the uncertainty surrounding future projections.
+
+---
+
+# Visualizations
+
+Task 4 generated several forecasting visualizations.
+
+- Historical vs Forecast (Access)
+- Historical vs Forecast (Usage)
+- Scenario Comparison
+- Forecast Confidence Intervals
+
+These visualizations provide an intuitive understanding of projected financial inclusion trends.
+
+---
+
+# Forecast Results
+
+The forecasting analysis suggests continued improvement in Ethiopia's financial inclusion indicators through 2027.
+
+### Access
+
+- Account ownership is expected to continue increasing.
+- Event-based adjustments accelerate projected growth beyond the historical trend.
+
+### Usage
+
+- Mobile money activity is expected to expand further.
+- Continued digital infrastructure investments and policy support strengthen usage growth.
+
+Overall, event-based forecasting produces more realistic projections than relying solely on historical trends.
+
+---
+
+# Interpretation
+
+The forecasting model indicates that:
+
+- Financial inclusion is expected to improve steadily through 2027.
+- Telebirr, M-Pesa, and Fayda Digital ID remain major contributors to future growth.
+- Infrastructure expansion and policy implementation continue to support digital financial services.
+- Forecast uncertainty remains due to the limited historical observations available for several indicators.
+- The projections are intended to support strategic planning rather than provide exact future values.
+
+---
+
+# Limitations
+
+Several limitations should be considered when interpreting the forecasts.
+
+- Only a small number of historical observations are available for several indicators.
+- Some usage indicators contain only one or two observations.
+- Linear regression assumes approximately linear long-term trends.
+- Event impacts are partly derived from literature and expert judgment.
+- Supply-side indicators are used as proxies for user behavior.
+- Confidence intervals may underestimate uncertainty because of sparse historical data.
+
+---
+
+# Conclusions
+
+Task 4 demonstrates how statistical forecasting can be enhanced using event-based intervention modeling.
+
+Key conclusions include:
+
+- Historical trends provide a useful baseline for forecasting.
+- Incorporating major policy and infrastructure events improves forecasting realism.
+- Ethiopia is expected to continue progressing toward higher levels of financial inclusion.
+- Forecasts can support regulators, financial institutions, and development partners in strategic planning.
+- Future work should incorporate richer historical data and more advanced forecasting techniques such as ARIMA, Prophet, or machine learning models as additional observations become available.
+
+---
+
+# Output Files
+
+Task 4 generated the following outputs.
+
+```text
+reports/
+│
+├── access_forecast.csv
+├── usage_forecast.csv
+├── forecast_summary.csv
+│
+└── figures/
+    ├── access_forecast.png
+    ├── usage_forecast.png
+    ├── scenario_forecasts.png
+    └── confidence_intervals.png
+```
+
+Notebook:
+
+```text
+notebooks/
+Task_4_Financial_Inclusion_Forecasting.ipynb
+```
+
+---
+
+# Git Workflow
+
+Task 4 development followed Git best practices.
+
+Major commits include:
+
+```text
+Create Task 4 forecasting notebook
+
+Train baseline forecasting models
+
+Evaluate forecasting performance
+
+Generate baseline forecasts
+
+Integrate event-based adjustments
+
+Create optimistic, base, and pessimistic scenarios
+
+Compute forecast confidence intervals
+
+Visualize access forecasts
+
+Visualize usage forecasts
+
+Export forecasting tables
+
+Interpret forecasting results
+
+Document forecasting limitations
+
+Summarize forecasting conclusions
+
+Export Task 4 outputs
+```
+
+---
+
+# Final Project Outputs
+
+```text
+data/
+└── processed/
+    ├── ethiopia_fi_enriched.csv
+    └── impact_links_enriched.csv
+
+reports/
+├── access_forecast.csv
+├── usage_forecast.csv
+├── forecast_summary.csv
+├── event_summary.csv
+├── event_indicator_matrix.csv
+│
+└── figures/
+    ├── account_ownership_trend.png
+    ├── growth_rate.png
+    ├── mobile_money_trend.png
+    ├── infrastructure_analysis.png
+    ├── event_timeline.png
+    ├── correlation_heatmap.png
+    ├── association_heatmap.png
+    ├── telebirr_validation.png
+    ├── access_forecast.png
+    ├── usage_forecast.png
+    ├── scenario_forecasts.png
+    └── confidence_intervals.png
+```
+
+---
+
+
 # Next Steps
 
 he next phase of the project focuses on forecasting Ethiopia's financial inclusion indicators for **2025–2027** using the enriched dataset and the event-based intervention framework developed in Tasks 1–3.
@@ -1162,14 +1513,16 @@ Planned activities include:
 
 ---
 
+
 # Future Work
 
-Subsequent tasks will include:
+Future improvements include:
 
-- Event Impact Modeling
-- Association Matrix Construction
-- Forecasting Access and Usage
-- Streamlit Dashboard Development
+- Incorporating additional annual financial inclusion observations.
+- Applying advanced forecasting models such as ARIMA, SARIMA, Prophet, and LSTM.
+- Including macroeconomic and demographic explanatory variables.
+- Updating forecasts as new Global Findex and operator data become available.
+- Deploying the forecasting pipeline within an interactive Streamlit dashboard for decision support.
 
 ---
 
