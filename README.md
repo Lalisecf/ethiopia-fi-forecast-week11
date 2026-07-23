@@ -1498,6 +1498,121 @@ reports/
 
 ---
 
+## Dashboard
+
+An interactive Streamlit dashboard is included to visualize historical financial inclusion indicators, forecasting results, event impacts, and future scenarios for Ethiopia.
+
+### Features
+
+- Overview of key financial inclusion indicators
+- Historical trend visualization
+- Interactive forecasts with confidence intervals
+- Event-augmented forecasting
+- Scenario comparison (Optimistic, Base, Pessimistic)
+- Progress toward the national financial inclusion target
+- Policy insights and key milestones
+- Downloadable forecast datasets
+
+---
+
+## Project Structure
+
+```text
+dashboard/
+│
+├── app.py
+├── style.css
+└── pages/
+    ├── 1_Overview.py
+    ├── 2_Trends.py
+    ├── 3_Forecasts.py
+    └── 4_Projections.py
+```
+
+---
+
+## Requirements
+
+Install all required packages before running the dashboard.
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Run the Dashboard
+
+Launch the Streamlit application using:
+
+```bash
+streamlit run dashboard/app.py
+```
+
+After running the command, Streamlit will automatically open the dashboard in your default web browser.
+
+If it does not open automatically, copy and paste the local URL displayed in the terminal (typically http://localhost:8501) into your browser.
+
+---
+
+## Dashboard Pages
+
+### Overview
+- Financial inclusion KPIs
+- Current indicators
+- P2P vs ATM crossover
+- 2027 forecast summary
+
+### Trends
+- Historical trends (2011–2024)
+- Interactive time-series charts
+- Date range filtering
+- Channel comparison
+
+### Forecasts
+- Historical vs forecast comparison
+- Confidence intervals
+- Baseline and Event-Augmented models
+- Projected milestones
+
+### Projections
+- Progress toward the 60% financial inclusion target
+- Scenario selector
+- Policy insights
+- Forecast downloads
+
+---
+
+## Dashboard Outputs
+
+The dashboard uses the forecasting outputs generated during Task 4:
+
+```
+reports/
+├── access_forecast.csv
+├── usage_forecast.csv
+└── figures/
+    ├── access_forecast.png
+    ├── usage_forecast.png
+    ├── scenario_forecasts.png
+```
+
+---
+
+## Technologies Used
+
+- Python
+- Streamlit
+- Plotly
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Statsmodels
+
+---
+
+
 
 # Next Steps
 
