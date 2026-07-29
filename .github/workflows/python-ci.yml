@@ -1,0 +1,48 @@
+name: Python CI
+
+on:
+  push:
+    branches: [main, "task-*", "refactor-*", "add-*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest flake8
+
+      - name: Lint with flake8
+        run: |
+          # Fail the build on syntax errors / undefined names
+          flake8 src tests --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Full lint as a warning-only pass (won't fail CI)
+          flake8 src tests --count --exit-zero --max-line-length=100 --statistics
+
+      - name: Run tests with pytest
+        run: |
+          pytest -v --junitxml=pytest-report.xml
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-results-${{ matrix.python-version }}
+          path: pytest-report.xml

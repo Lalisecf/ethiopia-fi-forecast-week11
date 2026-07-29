@@ -1,16 +1,16 @@
-record_id,indicator,category,observation_date,related_indicator,impact_direction,impact_magnitude,lag_months
-IMP_0001,Telebirr effect on Account Ownership,,2021-05-17 00:00:00,ACC_OWNERSHIP,increase,high,12
-IMP_0002,Telebirr effect on Telebirr Users,,2021-05-17 00:00:00,USG_TELEBIRR_USERS,increase,high,3
-IMP_0003,Telebirr effect on P2P Transactions,,2021-05-17 00:00:00,USG_P2P_COUNT,increase,high,6
-IMP_0004,Safaricom effect on 4G Coverage,,2022-08-01 00:00:00,ACC_4G_COV,increase,medium,12
-IMP_0005,Safaricom effect on Data Affordability,,2022-08-01 00:00:00,AFF_DATA_INCOME,decrease,medium,12
-IMP_0006,M-Pesa effect on M-Pesa Users,,2023-08-01 00:00:00,USG_MPESA_USERS,increase,high,3
-IMP_0007,M-Pesa effect on Mobile Money Account Rate,,2023-08-01 00:00:00,ACC_MM_ACCOUNT,increase,medium,6
-IMP_0008,Fayda effect on Account Ownership,,2024-01-01 00:00:00,ACC_OWNERSHIP,increase,medium,24
-IMP_0009,Fayda effect on Gender Gap,,2024-01-01 00:00:00,GEN_GAP_ACC,decrease,medium,24
-IMP_0010,FX Reform effect on Data Affordability,,2024-07-29 00:00:00,AFF_DATA_INCOME,increase,high,3
-IMP_0011,M-Pesa Interop effect on M-Pesa Active Users,,2025-10-27 00:00:00,USG_MPESA_ACTIVE,increase,medium,3
-IMP_0012,M-Pesa Interop effect on P2P Count,,2025-10-27 00:00:00,USG_P2P_COUNT,increase,medium,3
-IMP_0013,EthioPay effect on P2P Count,,2025-12-18 00:00:00,USG_P2P_COUNT,increase,medium,6
-IMP_0014,Safaricom Price Hike effect on Data Affordability,,2025-12-15 00:00:00,AFF_DATA_INCOME,increase,low,1
-IMP_0015,Strategy effect on Account Ownership,,2026-01-15,ACC_OWNERSHIP,increase,medium,12
+record_id_event,indicator,category_event,observation_date_event,related_indicator,impact_direction,impact_magnitude,lag_months
+EVT_0001,Telebirr effect on Account Ownership,product_launch,2021-05-17,ACC_OWNERSHIP,increase,high,12
+EVT_0001,Telebirr effect on Telebirr Users,product_launch,2021-05-17,USG_TELEBIRR_USERS,increase,high,3
+EVT_0001,Telebirr effect on P2P Transactions,product_launch,2021-05-17,USG_P2P_COUNT,increase,high,6
+EVT_0002,Safaricom effect on 4G Coverage,market_entry,2022-08-01,ACC_4G_COV,increase,medium,12
+EVT_0002,Safaricom effect on Data Affordability,market_entry,2022-08-01,AFF_DATA_INCOME,decrease,medium,12
+EVT_0003,M-Pesa effect on M-Pesa Users,product_launch,2023-08-01,USG_MPESA_USERS,increase,high,3
+EVT_0003,M-Pesa effect on Mobile Money Account Rate,product_launch,2023-08-01,ACC_MM_ACCOUNT,increase,medium,6
+EVT_0004,Fayda effect on Account Ownership,infrastructure,2024-01-01,ACC_OWNERSHIP,increase,medium,24
+EVT_0004,Fayda effect on Gender Gap,infrastructure,2024-01-01,GEN_GAP_ACC,decrease,medium,24
+EVT_0005,FX Reform effect on Data Affordability,policy,2024-07-29,AFF_DATA_INCOME,increase,high,3
+EVT_0007,M-Pesa Interop effect on M-Pesa Active Users,partnership,2025-10-27,USG_MPESA_ACTIVE,increase,medium,3
+EVT_0007,M-Pesa Interop effect on P2P Count,partnership,2025-10-27,USG_P2P_COUNT,increase,medium,3
+EVT_0008,EthioPay effect on P2P Count,infrastructure,2025-12-18,USG_P2P_COUNT,increase,medium,6
+EVT_0010,Safaricom Price Hike effect on Data Affordability,pricing,2025-12-15,AFF_DATA_INCOME,increase,low,1
+EVT_0011,Strategy effect on Account Ownership,policy,2026-01-15,ACC_OWNERSHIP,positive,10,12
