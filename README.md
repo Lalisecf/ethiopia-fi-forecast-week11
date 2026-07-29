@@ -10,6 +10,77 @@
 
 ---
 
+
+
+![CI](https://github.com/Lalisecf/ethiopia-fi-forecast-week11/actions/workflows/python-ci.yml/badge.svg)
+
+## Week 12 Engineering Enhancements
+
+This repository was upgraded from a notebook-only Week 11 submission
+into a tested, modular, CI-covered codebase for the Week 12 capstone.
+
+### What changed
+
+| Area | Before (Week 11) | After (Week 12) |
+|---|---|---|
+| Code | Logic lived only inside `notebooks/*.ipynb` | Extracted into a typed, documented `src/` package (`config.py`, `data_loader.py`, `event_model.py`, `forecast.py`, `explainability.py`) |
+| Config | Magic numbers (`1.96`, `1.10`, `+3`, file paths) hard-coded inline | Centralized in `src/config.py` using `@dataclass` config objects (`ForecastConfig`, `AppConfig`) |
+| Testing | None | 24 pytest unit/integration tests across `tests/test_data_loader.py`, `tests/test_event_model.py`, `tests/test_forecast.py`, `tests/test_explainability.py`, using shared fixtures in `tests/conftest.py` |
+| CI/CD | None | `.github/workflows/python-ci.yml` runs flake8 + pytest on every push/PR across Python 3.10 and 3.11 |
+| Explainability | None | `src/explainability.py` fits a SHAP-explainable model over the event→indicator association matrix, answering "which events matter most" and "why this prediction" |
+| Dashboard | Static notebook plots | Streamlit dashboard (`dashboard/`) — Overview / Trends / Forecasts / Projections pages |
+
+### Running the tests locally
+
+```bash
+pip install -r requirements.txt
+pytest -v
+```
+
+Sample output:
+
+```text
+tests/test_data_loader.py ......                                  [ 25%]
+tests/test_event_model.py ......                                  [ 50%]
+tests/test_forecast.py .........                                  [ 87%]
+tests/test_explainability.py ...                                  [100%]
+
+======================== 24 passed in 1.42s ========================
+```
+
+### Project structure (updated)
+
+```text
+ethiopia-fi-forecast/
+├── .github/workflows/
+│   └── python-ci.yml
+├── data/
+│   ├── raw/
+│   └── processed/
+├── notebooks/                  # original Week 11 analysis notebooks
+├── src/                        # NEW: reusable, typed source package
+│   ├── __init__.py
+│   ├── config.py                # dataclasses + named constants
+│   ├── data_loader.py
+│   ├── event_model.py
+│   ├── forecast.py
+│   └── explainability.py        # SHAP
+├── tests/                      # NEW: pytest suite (24 tests)
+│   ├── conftest.py
+│   ├── test_data_loader.py
+│   ├── test_event_model.py
+│   ├── test_forecast.py
+│   └── test_explainability.py
+├── dashboard/
+│   └── app.py
+├── reports/
+│   └── figures/
+├── requirements.txt
+├── setup.cfg                    # flake8 config
+├── pytest.ini
+└── README.md
+```
+
 # Project Overview
 
 Financial inclusion plays a critical role in economic development by enabling individuals and businesses to access formal financial services. Ethiopia has experienced rapid growth in digital financial services through innovations such as **Telebirr**, **M-Pesa Ethiopia**, **Fayda Digital ID**, and expanding telecommunications infrastructure. However, despite these developments, financial account ownership and digital payment adoption remain below global averages.
