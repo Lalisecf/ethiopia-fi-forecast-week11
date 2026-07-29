@@ -28,7 +28,6 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 
 MODELS_DIR = ROOT_DIR / "models"
 
-
 # -----------------------------------------------------------------------------
 # Dataset Configuration
 # -----------------------------------------------------------------------------
@@ -41,6 +40,8 @@ class DatasetConfig:
         PROCESSED_DATA_DIR /
         "ethiopia_fi_unified_data.csv"
     )
+    unified_excel: Path = RAW_DATA_DIR / "ethiopia_fi_unified_data.xlsx"
+    unified_csv: Path = RAW_DATA_DIR / "ethiopia_fi_unified_data.csv"
 
     reference_codes: Path = (
         RAW_DATA_DIR /
@@ -51,8 +52,6 @@ class DatasetConfig:
         PROCESSED_DATA_DIR /
         "ethiopia_fi_enriched_data.csv"
     )
-
-
 # -----------------------------------------------------------------------------
 # Forecast Configuration
 # -----------------------------------------------------------------------------
