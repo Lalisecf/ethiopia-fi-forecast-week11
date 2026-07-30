@@ -14,10 +14,20 @@
 
 ![CI](https://github.com/Lalisecf/ethiopia-fi-forecast-week11/actions/workflows/python-ci.yml/badge.svg)
 
-## Week 12 Engineering Enhancements
+## Week 12 Engineering Enhancements — Final Submission
 
 This repository was upgraded from a notebook-only Week 11 submission
 into a tested, modular, CI-covered codebase for the Week 12 capstone.
+
+| Deliverable | Status |
+|---|---|
+| Modular `src/` package with type hints & dataclasses | ✅ Complete |
+| Pytest unit/integration suite (24 tests) | ✅ Complete |
+| GitHub Actions CI (lint + test, Python 3.10/3.11) | ✅ Complete |
+| SHAP model explainability (`src/explainability.py`) | ✅ Complete |
+| Streamlit dashboard (Overview / Trends / Forecasts / Projections) | ✅ Complete |
+| README, business problem, results, quick start | ✅ Complete |
+| Final technical report / blog post | ✅ Complete |
 
 ### What changed
 
